@@ -99,50 +99,100 @@
   <a href="#racing">Racing</a>
   <a href="#sports">Sports</a>
   <a href="#thinking">Thinking</a>
+  <a href="#action">Action</a>
+  <a href="#multiplayer">Multiplayer</a>
+  <a href="#classic">Classic</a>
 </nav>
 
-<section id="popular">
-  <h2>Popular Games</h2>
-  <div class="games-grid">
-    <!-- Game Cards Example -->
-    <div class="game-card">
-      <img src="https://via.placeholder.com/150?text=Game+1" alt="Game 1">
-      <div class="info">
-        <h3>Game 1</h3>
-        <a class="play-button" href="games/game1.html" target="_blank">Play</a>
-      </div>
-    </div>
-    <!-- Repeat as needed (hundreds or thousands of times) -->
-  </div>
-</section>
+<div id="game-sections"></div>
 
-<section id="mostliked">
-  <h2>Most Liked Games</h2>
-  <div class="games-grid">
-    <!-- Game Cards -->
-  </div>
-</section>
+<script>
+  const gamesData = {
+    popular: [
+      { title: "Subway Surfers", image: "https://via.placeholder.com/160x120?text=Subway", link: "games/subway.html" },
+      { title: "Slope", image: "https://via.placeholder.com/160x120?text=Slope", link: "games/slope.html" },
+      { title: "Run 3", image: "https://via.placeholder.com/160x120?text=Run+3", link: "games/run3.html" },
+      { title: "Basket Random", image: "https://via.placeholder.com/160x120?text=Basket+Random", link: "games/basket-random.html" }
+    ],
+    mostliked: [
+      { title: "1v1.lol", image: "https://via.placeholder.com/160x120?text=1v1.lol", link: "games/1v1.html" },
+      { title: "Stickman Hook", image: "https://via.placeholder.com/160x120?text=Hook", link: "games/hook.html" },
+      { title: "Doge Miner", image: "https://via.placeholder.com/160x120?text=Doge+Miner", link: "games/dogeminer.html" },
+      { title: "Tic Tac Toe", image: "https://via.placeholder.com/160x120?text=Tic+Tac+Toe", link: "games/tictactoe.html" }
+    ],
+    racing: [
+      { title: "Madalin Stunt Cars", image: "https://via.placeholder.com/160x120?text=Madalin", link: "games/madalin.html" },
+      { title: "Drift Boss", image: "https://via.placeholder.com/160x120?text=Drift+Boss", link: "games/drift.html" },
+      { title: "Moto X3M", image: "https://via.placeholder.com/160x120?text=Moto+X3M", link: "games/moto.html" },
+      { title: "Highway Racer", image: "https://via.placeholder.com/160x120?text=Highway", link: "games/highway.html" }
+    ],
+    sports: [
+      { title: "Basketball Stars", image: "https://via.placeholder.com/160x120?text=Basketball", link: "games/basketball.html" },
+      { title: "Soccer Skills", image: "https://via.placeholder.com/160x120?text=Soccer", link: "games/soccer.html" },
+      { title: "Football Legends", image: "https://via.placeholder.com/160x120?text=Football", link: "games/football.html" },
+      { title: "Volley Random", image: "https://via.placeholder.com/160x120?text=Volley", link: "games/volley.html" }
+    ],
+    thinking: [
+      { title: "2048", image: "https://via.placeholder.com/160x120?text=2048", link: "games/2048.html" },
+      { title: "Sudoku", image: "https://via.placeholder.com/160x120?text=Sudoku", link: "games/sudoku.html" },
+      { title: "Minesweeper", image: "https://via.placeholder.com/160x120?text=Minesweeper", link: "games/minesweeper.html" },
+      { title: "Chess", image: "https://via.placeholder.com/160x120?text=Chess", link: "games/chess.html" }
+    ],
+    action: [
+      { title: "Zombocalypse", image: "https://via.placeholder.com/160x120?text=Zombocalypse", link: "games/zombocalypse.html" },
+      { title: "Gun Mayhem", image: "https://via.placeholder.com/160x120?text=Gun+Mayhem", link: "games/gun.html" },
+      { title: "Stick Fight", image: "https://via.placeholder.com/160x120?text=Stick+Fight", link: "games/stickfight.html" },
+      { title: "Ninja Clash Heroes", image: "https://via.placeholder.com/160x120?text=Ninja", link: "games/ninja.html" }
+    ],
+    multiplayer: [
+      { title: "Shell Shockers", image: "https://via.placeholder.com/160x120?text=Shell+Shockers", link: "games/shell.html" },
+      { title: "Krunker.io", image: "https://via.placeholder.com/160x120?text=Krunker", link: "games/krunker.html" },
+      { title: "Agar.io", image: "https://via.placeholder.com/160x120?text=Agar.io", link: "games/agario.html" },
+      { title: "Slither.io", image: "https://via.placeholder.com/160x120?text=Slither.io", link: "games/slither.html" }
+    ],
+    classic: [
+      { title: "Tetris", image: "https://via.placeholder.com/160x120?text=Tetris", link: "games/tetris.html" },
+      { title: "Pac-Man", image: "https://via.placeholder.com/160x120?text=Pac-Man", link: "games/pacman.html" },
+      { title: "Snake", image: "https://via.placeholder.com/160x120?text=Snake", link: "games/snake.html" },
+      { title: "Pong", image: "https://via.placeholder.com/160x120?text=Pong", link: "games/pong.html" }
+    ]
+  };
 
-<section id="racing">
-  <h2>Racing Games</h2>
-  <div class="games-grid">
-    <!-- Game Cards -->
-  </div>
-</section>
+  function createSection(id, title) {
+    const section = document.createElement("section");
+    section.id = id;
+    section.innerHTML = `
+      <h2>${title} Games</h2>
+      <div class="games-grid" id="${id}-games"></div>
+    `;
+    return section;
+  }
 
-<section id="sports">
-  <h2>Sport Games</h2>
-  <div class="games-grid">
-    <!-- Game Cards -->
-  </div>
-</section>
+  function renderGames(category, containerId) {
+    const container = document.getElementById(containerId);
+    gamesData[category].forEach(game => {
+      const card = document.createElement("div");
+      card.className = "game-card";
+      card.innerHTML = `
+        <img src="${game.image}" alt="${game.title}">
+        <div class="info">
+          <h3>${game.title}</h3>
+          <a class="play-button" href="${game.link}" target="_blank">Play</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
 
-<section id="thinking">
-  <h2>Thinking Games</h2>
-  <div class="games-grid">
-    <!-- Game Cards -->
-  </div>
-</section>
+  // Create and populate all sections
+  const container = document.getElementById("game-sections");
+  Object.keys(gamesData).forEach(category => {
+    const section = createSection(category, category.charAt(0).toUpperCase() + category.slice(1));
+    container.appendChild(section);
+    renderGames(category, `${category}-games`);
+  });
+</script>
 
 </body>
 </html>
+
