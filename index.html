@@ -195,4 +195,86 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unblocked Games</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .game-card {
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.6);
+      cursor: pointer;
+      text-align: center;
+      padding-bottom: 1rem;
+      transition: transform 0.2s;
+    }
+    .game-card:hover {
+      transform: scale(1.05);
+    }
+    .game-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid #333;
+    }
+    .game-card h3 {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Unblocked Games</h1>
+  </header>
+  <main>
+    <section>
+      <h2 style="padding-left:1rem;">Popular Games</h2>
+      <div class="games-grid" id="popular-games">
+        <div class="game-card" onclick="location.href='games/2048.html'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/2048_game_screenshot.png" alt="2048" />
+          <h3>2048</h3>
+        </div>
+        <div class="game-card" onclick="location.href='games/run3.html'">
+          <img src="https://cdn.run3.io/assets/Run3_Logo.png" alt="Run 3" />
+          <h3>Run 3</h3>
+        </div>
+        <div class="game-card" onclick="location.href='games/slope.html'">
+          <img src="https://cdn.mos.cms.futurecdn.net/Yo3Ndkj5Y5bYx5MJjPfcdy-1200-80.jpg" alt="Slope" />
+          <h3>Slope</h3>
+        </div>
+        <div class="game-card" onclick="location.href='games/happywheels.html'">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/Happy_Wheels_logo.png/220px-Happy_Wheels_logo.png" alt="Happy Wheels" />
+          <h3>Happy Wheels</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
 
